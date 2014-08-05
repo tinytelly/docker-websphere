@@ -31,7 +31,7 @@ unzip   WAS_V8.5_1_OF_3.zip -d /opt/software/IBM/was
 unzip   WAS_V8.5_2_OF_3.zip -d /opt/software/IBM/was
 unzip   WAS_V8.5_3_OF_3.zip -d /opt/software/IBM/was
 
-#Install Install Package Manager
+#Install Package Manager
 cd /opt/software/IBM/installer-package
 ./installc  -acceptLicense -accessRights admin -installationDirectory "/opt/WebSphere85/IMGR" -dataLocation "/opt/WebSphere85/Imdata" -silent
 
