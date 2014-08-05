@@ -5,8 +5,9 @@ docker-websphere
 These instructions assume you are installing Websphere 8.5.0 but will work for any version.
 
 ####Before you start:
-you will need to get the zip files from IBM for websphere fix central : http://www.ibm.com/support/fixcentral/
-download the installation files to /tmp/websphere
+You will need to get the zip files from IBM for websphere fix central : http://www.ibm.com/support/fixcentral/
+
+Download the installation files to /tmp/websphere
 
 
 ####Start docker 
@@ -49,6 +50,7 @@ cd /opt/IBM/WebSphere/AppServer/bin
 ```docker ps -a```
 
 get the containerId and use it in the next command
+
 ```docker commit <containerId> websphere_8_5_0```
 
 
