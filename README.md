@@ -46,7 +46,7 @@ cd /opt/IBM/WebSphere/AppServer/bin
 ./manageprofiles.sh -create -templatePath /opt/IBM/WebSphere/AppServer/profileTemplates/default/
  ```
  
-####Build docker image
+####Build the docker image
 ```docker ps -a```
 
 get the containerId and use it in the next command
