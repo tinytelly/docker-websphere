@@ -81,3 +81,9 @@ docker save websphere_8_5_0 > websphere_8_5_0.tar
 ```
 docker load -i websphere_8_5_0.tar
 ```
+
+####Test the server is responding (via lynx here or use a browser)
+```
+yum -y install lynx
+lynx localhost:9080/snoop
+```
