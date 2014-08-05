@@ -73,3 +73,11 @@ while ( true )
 done
 ```
 
+####Export the docker image to a tar ( to move it from server to server without using a shared repository)
+```
+docker save websphere_8_5_0 > websphere_8_5_0.tar
+```
+####Import the tar as an image on a different server after you have copied over the tar file.
+```
+docker load -i websphere_8_5_0.tar
+```
