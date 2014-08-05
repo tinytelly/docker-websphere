@@ -47,6 +47,7 @@ cd /opt/IBM/WebSphere/AppServer/bin
  
 ####Build docker image
 ```docker ps -a```
+
 get the containerId and use it in the next command
 ```docker commit <containerId> websphere_8_5_0```
 
