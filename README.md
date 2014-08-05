@@ -61,7 +61,8 @@ get the containerId and use it in the next command
 ```docker run -d -p 9080:9080 -v /tmp/websphere:/tmpfromhost websphere_8_5_0 bash -c 'cd tmpfromhost; chmod 777 *.*; ./startWebsphere.sh;'```
 
 #####contents of startWebsphere.sh
-```cd /opt/IBM/WebSphere/AppServer/bin
+```
+cd /opt/IBM/WebSphere/AppServer/bin
 ./startServer.sh server1
 
 while ( true )
