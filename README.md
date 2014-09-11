@@ -57,7 +57,7 @@ get the containerId and use it in the next command
 
 ```docker run -i -t -p 9080:9080 -v /tmp/websphere:/tmpfromhost websphere_8_5_0 bash -c 'cd tmpfromhost; chmod 777 *.*; ./startWebsphere.sh;'```
 
-####Start the image and expose the port (detached mode: meaning its running in the backgroud)
+####Start the image and expose the port (detached mode: meaning its running in the background)
 ```docker run -d -p 9080:9080 -v /tmp/websphere:/tmpfromhost websphere_8_5_0 bash -c 'cd tmpfromhost; chmod 777 *.*; ./startWebsphere.sh;'```
 
 #####contents of startWebsphere.sh
