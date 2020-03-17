@@ -1,19 +1,21 @@
-docker-websphere
+## docker-websphere
 ================
 
-###Install websphere in Docker
+### Install websphere in Docker
 These instructions assume you are installing Websphere 8.5.0 but will work for any version.
 
-####Before you start:
+#### Before you start:
 You will need to get the zip files from IBM for websphere at fix central : http://www.ibm.com/support/fixcentral/
 
 Download the installation files to /tmp/websphere
 
 
-####Start docker 
- ```docker run -i -t -v /tmp/websphere:/tmpfromhost centos bash ```
+#### Start docker 
+ ```
+ docker run -i -t -v /tmp/websphere:/tmpfromhost centos bash 
+ ```
 
-####Run up websphere inside docker
+#### Run up websphere inside docker
  ```
 yum -y install unzip
 yum -y install gtk2.i686
@@ -46,21 +48,29 @@ cd /opt/IBM/WebSphere/AppServer/bin
 ./manageprofiles.sh -create -templatePath /opt/IBM/WebSphere/AppServer/profileTemplates/default/
  ```
  
-####Build the docker image
-```docker ps -a```
+#### Build the docker image
+```
+docker ps -a
+```
 
 get the containerId and use it in the next command
 
-```docker commit <containerId> websphere_8_5_0```
+```
+docker commit <containerId> websphere_8_5_0
+```
 
-####Start the image and expose the port (interactive mode: meaning you end up inside the container)
+#### Start the image and expose the port (interactive mode: meaning you end up inside the container)
 
-```docker run -i -t -p 9080:9080 -v /tmp/websphere:/tmpfromhost websphere_8_5_0 bash -c 'cd tmpfromhost; chmod 777 *.*; ./startWebsphere.sh;'```
+``` 
+docker run -i -t -p 9080:9080 -v /tmp/websphere:/tmpfromhost websphere_8_5_0 bash -c 'cd tmpfromhost; chmod 777 *.*; ./startWebsphere.sh;'
+```
 
-####Start the image and expose the port (detached mode: meaning its running in the background)
-```docker run -d -p 9080:9080 -v /tmp/websphere:/tmpfromhost websphere_8_5_0 bash -c 'cd tmpfromhost; chmod 777 *.*; ./startWebsphere.sh;'```
+#### Start the image and expose the port (detached mode: meaning its running in the background)
+```
+docker run -d -p 9080:9080 -v /tmp/websphere:/tmpfromhost websphere_8_5_0 bash -c 'cd tmpfromhost; chmod 777 *.*; ./startWebsphere.sh;'
+```
 
-#####contents of startWebsphere.sh
+##### contents of startWebsphere.sh
 ```
 cd /opt/IBM/WebSphere/AppServer/bin
 ./startServer.sh server1
@@ -73,16 +83,16 @@ while ( true )
 done
 ```
 
-####Export the docker image to a tar ( to move it from server to server without using a shared repository)
+#### Export the docker image to a tar ( to move it from server to server without using a shared repository)
 ```
 docker save websphere_8_5_0 > websphere_8_5_0.tar
 ```
-####Import the tar as an image on a different server after you have copied over the tar file.
+#### Import the tar as an image on a different server after you have copied over the tar file.
 ```
 docker load -i websphere_8_5_0.tar
 ```
 
-####Test the server is responding (via lynx here or use a browser)
+#### Test the server is responding (via lynx here or use a browser)
 ```
 yum -y install lynx
 lynx localhost:9080/snoop
